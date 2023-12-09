@@ -18,6 +18,8 @@ router.get('/', (req, res) => {
 
 });
 
+// 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+/* WE WILL NOT NEED A POST ROUTE FOR THE BASE MODE */
 router.post('/', (req, res) => {
   console.log(req.body);
   // RETURNING "id" will give us back the id of the created movie

@@ -23,6 +23,17 @@ function* fetchAllMovies() {
   }
 }
 
+// Set current movie:
+const currentMovie = (state={}, action) => {
+  switch (action.type) {
+    case 'SET_CURRENT_MOVIE':
+      return action.payload;
+      case 'RESET_CURRENT_MOVIE':
+        return {}
+  }
+  return state;
+}
+
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
@@ -51,6 +62,7 @@ const storeInstance = createStore(
   combineReducers({
     movies,
     genres,
+    currentMovie
   }),
   // Add sagaMiddleware to our store
   applyMiddleware(sagaMiddleware, logger),
