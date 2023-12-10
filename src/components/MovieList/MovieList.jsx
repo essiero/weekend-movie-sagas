@@ -10,8 +10,10 @@ function MovieList() {
 
   const showMovieDetails = (movie) => {
     console.log("movie: ", movie)
+    console.log("movie.id: ", movie.id)
+    
     dispatch({
-      type: 'SET_CURRENT_MOVIE',
+      type: 'SAGA/SET_CURRENT_MOVIE',
       payload: movie
     })
 
@@ -19,19 +21,18 @@ function MovieList() {
   }
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_MOVIES' });
+    dispatch({ type: 'SAGA/FETCH_MOVIES' });
   }, []);
 
   return (
     <main>
-      <h1>MovieList</h1>
+      <h1>Movie List</h1>
       <section className="movies">
         {movies.map(movie => {
-          let movieBeingMapped = movie;
           return ( 
-            <div data-testid='movieItem' key={movie.id} onClick={() => showMovieDetails(movie)}>
+            <div data-testid='movieItem' key={movie.id}>
               <h3>{movie.title}</h3>
-              <img src={movie.poster} alt={movie.title}/>
+              <img src={movie.poster} alt={movie.title} onClick={() => showMovieDetails(movie)} data-testid="toDetails"/>
             </div>
           );
         })}
