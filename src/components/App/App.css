@@ -1,3 +1,20 @@
 .App {
   text-align: center;
 }
+
+.poster {
+  max-width: 180px;
+  max-height: 255px;
+  fill: cover;
+  padding: 10px;
+}
+
+.movies {
+  justify-content: center;
+}
+
+.movieDiv {
+  max-width: 600px;
+  position: absolute;
+  left: 25%;
+}

@@ -16,16 +16,9 @@ function MovieDetails() {
         })
         history.push('/')
     }
-
-    // const getGenres = () => {
-    //     dispatch({
-    //         type: "GET_GENRES",
-    //         payload: currentMovie.id
-    //     })
-    // }
  
     return (
-        <div key={currentMovie.id} data-testid="movieDetails">
+        <div className="movieDiv" key={currentMovie.id} data-testid="movieDetails">
             <button onClick={returnToMainPage} data-testid="toList">X</button>
             <h3>{currentMovie.title}</h3>
             <h4>{currentMovieGenres.map(genre => {

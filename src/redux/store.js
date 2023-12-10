@@ -26,12 +26,7 @@ function* fetchAllMovies() {
 
 function* getCurrentMovieGenres(action) {
   try {
-    const movieResponse =
-      yield axios.get(`/api/genres/${action.payload.id}`);
-      // yield axios({
-      //   method: "GET",
-      //   url: `/api/genres/${action.payload.id}`,
-      // });
+    const movieResponse = yield axios.get(`/api/genres/${action.payload.id}`);
     yield put({
       type: "SET_CURRENT_MOVIE_GENRES",
       payload: movieResponse.data,
