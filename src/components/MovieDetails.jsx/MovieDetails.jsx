@@ -30,7 +30,7 @@ function MovieDetails() {
             <h3>{currentMovie.title}</h3>
             <h4>{currentMovieGenres.map(genre => {
                 return (
-                    <p>{genre.name}</p>
+                    <p key={genre.id}>{genre.name}</p>
                 )
             })}</h4>
             <img src={currentMovie.poster} />

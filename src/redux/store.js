@@ -32,7 +32,6 @@ function* getCurrentMovieGenres(action) {
       //   method: "GET",
       //   url: `/api/genres/${action.payload.id}`,
       // });
-    console.log("movieResponse.data: ", movieResponse.data);
     yield put({
       type: "SET_CURRENT_MOVIE_GENRES",
       payload: movieResponse.data,
