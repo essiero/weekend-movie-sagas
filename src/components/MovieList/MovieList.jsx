@@ -27,7 +27,7 @@ function MovieList() {
         {movies.map(movie => {
           return ( 
             <div data-testid='movieItem' key={movie.id}>
-              <h3>{movie.title}</h3>
+              <h3 className='h3'>{movie.title}</h3>
               <img className="poster" src={movie.poster} alt={movie.title} onClick={() => showMovieDetails(movie)} data-testid="toDetails"/>
             </div>
           );
