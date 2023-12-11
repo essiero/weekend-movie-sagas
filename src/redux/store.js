@@ -8,6 +8,7 @@ import axios from "axios";
 function* rootSaga() {
   yield takeEvery("SAGA/FETCH_MOVIES", fetchAllMovies);
   yield takeLatest("SAGA/SET_CURRENT_MOVIE", getCurrentMovieGenres);
+  yield takeLatest("SAGA/ADD_MOVIE", addNewMovie);
 }
 
 function* fetchAllMovies() {
@@ -36,6 +37,20 @@ function* getCurrentMovieGenres(action) {
   }
 }
 
+function* addNewMovie(action) {
+  console.log("New Movie action.payload: ", action.payload)
+  try {
+    const response = yield axios({
+      method: 'POST',
+      url: '/api/movies',
+      data: action.payload
+    });
+    yield fetchAllMovies();
+  } catch(error) {
+    console.log('Saga function addNewMovie failed: ', error)
+  }
+}
+
 // Set current movie:
 const currentMovie = (state = {}, action) => {
   switch (action.type) {
@@ -56,6 +71,15 @@ const currentMovieGenres = (state = [], action) => {
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
+
+const formShown = (state=false, action) => {
+  switch (action.type) {
+    case "TOGGLE_FORM_SHOWN":
+      return !state;
+      default:
+        return state;
+  }
+}
 
 // Used to store movies returned from the server
 const movies = (state = [], action) => {
