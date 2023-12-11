@@ -9,9 +9,6 @@ function MovieList() {
   const movies = useSelector(store => store.movies);
 
   const showMovieDetails = (movie) => {
-    console.log("movie: ", movie)
-    console.log("movie.id: ", movie.id)
-    
     dispatch({
       type: 'SAGA/SET_CURRENT_MOVIE',
       payload: movie
