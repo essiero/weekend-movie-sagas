@@ -18,3 +18,23 @@
   position: absolute;
   left: 25%;
 }
+
+input, select {
+  display: block;
+margin: auto;
+}
+
+#formDiv {
+  align-items: center;
+}
+
+@font-face {
+  font-family: Trajan;
+  src: url('../../../public/trajan.ttf');
+}
+
+h1 {
+  font-family: Trajan;
+  font-size: 5rem;
+  margin-bottom: 20px;
+}

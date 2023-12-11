@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool')
 
-// WE WILL NOT NEED THIS ROUTE FOR THE BASE MODE
+
 router.get('/:id', (req, res) => {
   console.log("req.params.id", req.params.id)
-  // Add query to get all genres
+  // Display title and genre name for movie with a given id
   const query = `
   SELECT "movies"."title",
 		"genres"."name"
