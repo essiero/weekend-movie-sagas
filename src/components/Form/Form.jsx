@@ -1,15 +1,30 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 function Form() {
+    const dispatch = useDispatch();
+    const [newMovieObject, setNewMovieObject] = useState({})
+
+    const postNewMovie = () => {
+        dispatch({
+            type: 'POST',
+            url: '/api/movies',
+            data: newMovieObject
+        })
+    }
+    const setGenre = (value) => {
+        setNewMovieObject(value)
+    }
 return (
     <div id="formDiv">
     <form align="center">
       <input placeholder="Title"></input>
       <input placeholder='Movie poster URL'></input>
       <input placeholder='Description'></input>
-      <select>
-      <option value="" disabled selected>Select genre</option>
+      <select onChange={setGenre}>
+        <option value="" disabled selected>Select genre</option>
         <option value="1">Adventure</option>
         <option value="2">Animated</option>
         <option value="3">Biographical</option>
@@ -28,8 +43,12 @@ return (
       <Button variant="outlined"
       sx={{
         margin: 1
-      }}>Cancel</Button>
-      <Button variant="contained">Save</Button>
+      }} 
+      onClick={history.push('/')}
+      >Cancel</Button>
+      <Button variant="contained"
+      onClick={postNewMovie}
+      >Save</Button>
 
       </form>
       </div>

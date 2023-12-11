@@ -23,7 +23,10 @@ const showForm = () => {
   return (
     <div className="App">
       <h1>The Movies Saga!</h1>
-      <Button variant="contained" onClick={showForm}>Add movie</Button>
+      <Button variant="contained" onClick={showForm}
+       sx={{
+        mb: 2
+      }}>Add movie</Button>
       {formShown ? <Form />
     : ''}
       <Router>        
