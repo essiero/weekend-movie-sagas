@@ -5,17 +5,27 @@ import MovieDetails from '../MovieDetails.jsx/MovieDetails';
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import { useHistory } from 'react-router-dom';
+import { useState } from 'react';
+import Form from '../Form/Form';
 
 function App() {
 const history = useHistory();
+const [formShown, setFormShown] = useState(false);
 
-  const addNewMovie = () => {
+const showForm = () => {
+  setFormShown(!formShown);
+}
+
+
+  const displayForm = () => {
     console.log("here is am, the button is clicking")
   }
   return (
     <div className="App">
       <h1>The Movies Saga!</h1>
-      <Button variant="contained" onClick={addNewMovie}>Add movie</Button>
+      <Button variant="contained" onClick={showForm}>Add movie</Button>
+      {formShown ? <Form />
+    : ''}
       <Router>        
         <Route path="/" exact>
           <MovieList />
